@@ -33,12 +33,13 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-               Center(child: Text('Lottery winning number is your number $x')),
+               Center(child: Text('Lottery winning number is your number 5')),
             SizedBox(
               height: 30,
             ),
                  Container(
                    height: 250,
+                   width: 300,
 
                    decoration: BoxDecoration(
                    color: Colors.pink.withOpacity(0.3),
@@ -47,7 +48,20 @@ class _MyAppState extends State<MyApp> {
                    ),
                    child: Padding(
                      padding: const EdgeInsets.all(20),
-                     child: Column(
+                     child: x == 5 ? Column(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       crossAxisAlignment: CrossAxisAlignment.center,
+                       children: [
+                         Icon(Icons.done_all, color: Colors.green, size: 30,),
+                         SizedBox(
+                           height: 40,
+                         ),
+                         Text('Congratulation you have won the lotter. Your number is $x \n', textAlign: TextAlign.center)
+                       ],
+                     ):
+                         
+
+                     Column(
                        mainAxisAlignment: MainAxisAlignment.center,
                        crossAxisAlignment: CrossAxisAlignment.center,
                        children: [
@@ -65,8 +79,11 @@ class _MyAppState extends State<MyApp> {
         floatingActionButton: FloatingActionButton(
           onPressed: (){
             // print(random.nextInt(10).toString());
-            x = random.nextInt(100);
+            x = random.nextInt(6);
             print(x);
+            setState(() {
+
+            });
             // print('Tap');
           },
           child: Icon(Icons.refresh ),
